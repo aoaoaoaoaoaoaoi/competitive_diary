@@ -25,7 +25,7 @@
 # 詳細
 ## [A問題](https://atcoder.jp/contests/jsc2021/tasks/jsc2021_a)
 ### [提出コード](https://atcoder.jp/contests/jsc2021/submissions/21807343)
-```
+```c++
 	int main(void)
 	{
 		double x, y, z; cin >> x >> y >> z;
@@ -42,7 +42,7 @@
 
 ## [B問題](https://atcoder.jp/contests/jsc2021/tasks/jsc2021_b)
 ### [提出コード](https://atcoder.jp/contests/jsc2021/submissions/21814665)
-```
+```c++
 	int main(void)
 	{
 		int n, m; cin >> n >> m;
@@ -73,7 +73,7 @@
 
 ## [C問題](https://atcoder.jp/contests/jsc2021/tasks/jsc2021_c)
 ### [提出コード](https://atcoder.jp/contests/jsc2021/submissions/21822527)
-```
+```c++
 	int main(void)
 	{
 		int a, b; cin >> a >> b;

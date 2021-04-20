@@ -1,0 +1,158 @@
+# コンテスト
+
+2021/04/11<br>
+[AtCoder Beginner Contest 198](https://atcoder.jp/contests/abc198)
+
+# 記録
+
+## 総合
+
+| 順位          | パフォーマンス | レーティング    |
+| ------------- | -------------- | --------------- |
+| 4350th / 8172 | 558            | 686 → 674 (-12) |
+
+## 提出
+
+| 時間                | 問題 | 結果 |
+| ------------------- | ---- | ---- |
+| 2021-04-11 22:34:28 | C    | AC   |
+| 2021-04-11 22:08:07 | C    | WA   |
+| 2021-04-11 21:46:11 | C    | WA   |
+| 2021-04-11 21:36:00 | C    | WA   |
+| 2021-04-11 21:22:29 | B    | AC   |
+| 2021-04-11 21:02:46 | A    | AC   |
+
+
+# 詳細
+
+## [A問題](https://atcoder.jp/contests/abc198/tasks/abc198_a)
+
+### [提出コード](https://atcoder.jp/contests/abc198/submissions/21638147)
+
+```C++
+	int main(void)
+	{
+		int n; cin >> n;
+		int ans = n - 1;
+		cout << ans << endl;
+	}
+```
+
+### コメント
+
+[解説](https://atcoder.jp/contests/abc198/editorial/241)
+
+解説と同じ解き方だった
+
+時間も悪くない
+
+
+## [B問題](https://atcoder.jp/contests/abc198/tasks/abc198_b)
+
+### [提出コード](https://atcoder.jp/contests/abc198/submissions/21656071)
+
+```C++
+	int main(void)
+	{
+		string n; cin >> n;
+ 
+		if (n == "0") {
+			cout << "Yes" << endl;
+			return 0;
+		}
+ 
+		int index = n.size() - 1;
+		while (n[index] == '0') {
+			--index;
+		}
+ 
+		int tempIndex = index;
+		string ans = "Yes";
+		for (int i = 0; 0 < (tempIndex - i); ++i) {
+			if (n[i] != n[tempIndex]) {
+				ans = "No";
+				break;
+			}
+			--tempIndex;
+		}
+ 
+		cout << ans << endl;
+	}
+```
+
+### コメント
+
+[解説](https://atcoder.jp/contests/abc198/editorial/223)
+
+* 解法について
+
+  自分のコードでは、後ろについている0を省いた部分で回文が成り立っているかを判定している。
+
+  解説は前に「0」を0～9個つけたパターンを試している。
+
+  インデックスはバグの元なので、解説の解き方の方がよさげ
+
+* 時間について
+
+  おそらく解き方で悩んだ時間だと思うが、かかりすぎ
+
+
+## [C問題](https://atcoder.jp/contests/abc198/tasks/abc198_c)
+
+### [提出コード](https://atcoder.jp/contests/abc198/submissions/21688742)
+
+```C++
+	int main(void)
+	{
+		double r, x, y; cin >> r >> x >> y;
+		double distance = x * x + y * y;
+		double wari = sqrt(distance / (r * r));
+		int ans = wari;
+		if (wari != ans) {
+			++ans;
+		}
+		if ((r * r) > (x * x + y * y)) {
+			ans = 2;
+		}
+		cout << ans << endl;
+	}
+```
+
+### コメント
+
+[解説](https://atcoder.jp/contests/abc198/editorial/1043)
+
+* 時間
+
+  はまった、1時間以上この問題に使用
+
+* 解法
+
+  一番初めのWA
+
+  ```C++
+  	int main(void)
+  	{
+  		double r, x, y; cin >> r >> x >> y;
+  		double distance = sqrt(x * x + y * y);
+  		int ans = (distance + (r - 1)) / r;
+  		cout << ans << endl;
+  	}
+  ```
+
+  解説でいうところの「d≠R かつ d≤2R のとき 2」が考慮もれ
+
+  場合分け問題は気をつけるくらいしかない気がする
+
+  小さい方から丁寧に考えるくらいは心がけてもいいかも
+
+
+## [D問題](https://atcoder.jp/contests/abc198/tasks/abc198_d)
+
+### 提出コード
+
+### コメント
+
+Cで時間がなくなったので見ていない
+
+少し見た感じ解けそうだったのでもったいなかった
