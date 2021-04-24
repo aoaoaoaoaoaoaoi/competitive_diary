@@ -22,6 +22,8 @@
 
   DFS
 
+  C++だと[next_permutation](https://qiita.com/siser/items/a91022071b24952d27d9)でもいける
+
 * ceil
 
   ```(n1 / (n2 - 1)) / n2```が使用できるのは整数のみ
