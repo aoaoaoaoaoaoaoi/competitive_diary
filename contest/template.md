@@ -1,55 +1,157 @@
 # コンテスト
-2021//<br>
-[]()
+2021/7/31<br>
+[AtCoder Beginner Contest 212](https://atcoder.jp/contests/abc212)
 
 # 記録
 ## 総合
 |  順位  |  パフォーマンス  | レーティング |
 | ---- | ---- | ---- |
-|  th /   |    |  |
+|  4646 th / 7893  | 391 | 691 → 665 (-26) |
 
 ## 提出
 |  時間  |  問題  | 結果 |
 | ---- | ---- | ---- |
-|    |    |  |
-|    |    |  |
-|    |    |  |
-|    |    |  |
-|    |    |  |
+| 2021-07-31 22:24:26 | C | AC |
+| 2021-07-31 22:11:31 | C | WA |
+| 2021-07-31 22:10:42 | C | CE |
+| 2021-07-31 21:58:24 | C | WA |
+| 2021-07-31 21:50:27 | C | WA |
+| 2021-07-31 21:14:27 | B | AC |
+| 2021-07-31 21:03:30 | A | AC |
 
 
 # 詳細
-## [A問題]()
-### [提出コード]()
+## [A問題](https://atcoder.jp/contests/abc212/tasks/abc212_a)
+### [提出コード](https://atcoder.jp/contests/abc212/submissions/24649171)
 ```c++
-
+int main() {
+  int a, b; cin >> a >> b;
+  string ans = "Alloy";
+  if(0<a && b==0){
+    ans = "Gold";
+  }else if(a==0 	&& 0<b){
+    ans = "Silver";
+  }
+  cout << ans << endl;
+}
 ```
 
 ### コメント
-[解説]()
+[解説](https://atcoder.jp/contests/abc212/editorial/2361)
+
+解説とほぼ同じ
 
 
-## [B問題]()
-### [提出コード]()
+## [B問題](https://atcoder.jp/contests/abc212/tasks/abc212_b)
+### [提出コード](https://atcoder.jp/contests/abc212/submissions/24659003)
 ```c++
-
+int main() {
+  string x; cin >> x;
+  string ans = "Weak";
+  bool isSame = true;
+  rep(i, 3){
+    if(x[i] != x[i+1]){
+      isSame = false;
+    }
+  }
+  if(isSame){
+      cout << ans << endl;
+      return 0;
+  }
+ 
+  bool isChain = true;
+  rep(i, 3){
+    if(x[i] == '9'){
+      if(x[i+1] != '0'){
+        ans = "Strong";
+      }
+    }else{
+      if(x[i+1] - x[i] != 1){
+        ans = "Strong";
+      }
+    }
+  }
+  cout << ans << endl;
+}
 ```
 
 ### コメント
-[解説]()
+[解説](https://atcoder.jp/contests/abc212/editorial/2354)
+
+最初問題文を勘違いしていて、一つでも```xi+1-xi=1```があれば```Weak```だと思ってた。
+
+サンプルで気づいた。
+
+全部同じか連なってるかを一度に書くとぐちゃぐちゃになるかなと思ってループ分けた。
+
+解説の連なってるかの判定の取り方がうまい。
+
+1足したときに同じになるかどうかを見てる。
 
 
-## [C問題]()
-### [提出コード]()
+## [C問題](https://atcoder.jp/contests/abc212/tasks/abc212_c)
+### [提出コード](https://atcoder.jp/contests/abc212/submissions/24686813)
 ```c++
-
+int main() {
+  int n, m; cin >> n >> m;
+  vector<ll>a(n);
+  rep(i, n){
+    cin >> a[i];
+  }
+  vector<ll>b(m);
+  rep(i, m){
+    cin >> b[i];
+  }
+  sort(a.begin(), a.end());
+  a.erase(unique(a.begin(), a.end()), a.end());
+  sort(b.begin(), b.end());
+  b.erase(unique(b.begin(), b.end()), b.end());
+ 
+  ll ans = INF;
+  int bi = 0;
+  rep(ai, a.size()){
+    while(b[bi] < a[ai] && bi < b.size()){
+        bi++;
+    }
+    if(0 < bi){
+      ans = min(ans, abs(a[ai]-b[bi-1]));
+    }
+    ans = min(ans, abs(a[ai]-b[bi]));
+  }
+ 
+  cout << ans << endl;
+}
 ```
 
 ### コメント
-[解説]()
+[解説](https://atcoder.jp/contests/abc212/editorial/2355)
+
+コンテスト中
+
+1. 二分探索するかループ回す方法するか迷う
+2. 二分探索にする
+3. バグる（okの範囲を正確に把握できてなかったのとvector.size()の型に対しての理解不足）
+4. ループ回す方法にする
+5. biが0になることに気づかず、bi-1がout of index（ただしエラーは出ない）
+
+ループ回す方法のイメージが正確についてなかったせいだけど、はじめに二分探索を選択したのがそもそもの間違い
+
+vector.size()は符号なし整数だからキャストしないと詰まる
+
+[[競プロで踏みがちな C++ の罠](https://rsk0315.hatenablog.com/entry/2019/12/17/002419)]
+
+インデックスについては、確認しなかったわけじゃないけど後ろにはみ出る方は少し考えて-1の方は軽く流したのが原因
+
+再発防止策ある？って言われたらない
+
+エラー出る言語に切り替えるとか？
 
 
 ## [D問題]()
 ### 提出コード
 
 ### コメント
+
+残り15分くらいで問題見た。
+
+解き方思いつかなくて終わった。
