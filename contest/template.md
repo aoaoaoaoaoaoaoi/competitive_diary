@@ -1,94 +1,52 @@
 # コンテスト
-2021/2/5<br>
-[モノグサプログラミングコンテスト2022（AtCoder Beginner Contest 238）](https://atcoder.jp/contests/abc238)
+2022//<br>
+[]()
 
 # 記録
 ## 総合
 |  順位  |  パフォーマンス  | レーティング |
 | ---- | ---- | ---- |
-|  5578th / 9172  | 313 | 669 → 637 (-32) |
+|   /   |  |  |
 
 ## 提出
 |  時間  |  所要時間  |  問題  | 結果 |
 | ---- | ---- | ---- | ---- |
-| 2022-02-05 22:14:39 |    | B | AC |
-| 2022-02-05 22:09:46 |  | B | WA |
-| 2022-02-05 21:11:08 |  | A | AC |
-| 2022-02-05 21:04:00 |  | A | WA |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 
 
 # 詳細
-## [A問題](https://atcoder.jp/contests/abc238/tasks/abc238_a)
-### [提出コード](https://atcoder.jp/contests/abc238/submissions/29073873)
+## [A問題]()
+### [提出コード]()
 ```c++
-      int main() {
-        int n; cin >> n;
-        string ans = 1 < n && n <= 4 ? "No" : "Yes";
-        cout << ans << " ";
-      }
+
 ```
 
 ### コメント
 
-* 1のときを忘れててWAした
+* 
 
-[解説](https://atcoder.jp/contests/abc238/editorial/3355)
+[解説]()
 
 
-## [B問題](https://atcoder.jp/contests/abc238/tasks/abc238_b)
-### [提出コード](https://atcoder.jp/contests/abc238/submissions/29095436)
+## [B問題]()
+### [提出コード]()
 ```c++
-      int main() {
-        int n; cin >> n;
-        vector<int>a(n);
-        rep(i, n){
-          cin >> a[i];
-        }
-        
-        vector<int>aa;
-        aa.push_back(360);
-        int sum = 0;
-        rep(i, n){
-          int target = a[i];
-          sum += target;
-          vector<int>at;
-          int cut = sum % 360;
-          rep(j, (int)aa.size()){
-            if(0 < cut - aa[j]){
-              cut -= aa[j];
-              at.push_back(aa[j]);
-              continue;
-            }
-            if(0 < cut){
-              //aa[j]を分割する
-              at.push_back(cut);
-              at.push_back(aa[j] - cut);
-              cut = 0;
-              continue;
-            }
-            at.push_back(aa[j]);
-          }
-          aa = at;
-        }
-        int ans = 0;
-        rep(i, (int)aa.size()){
-          ans = max(ans, aa[i]);
-        }
-        cout << ans << endl;
-      }
+
 ```
 
 ### コメント
 
-* とてもしんどかった
-* ループしながらSUMしたらできそうと思ったけど、コードでまとまらなかった
+* 
 
-[解説](https://atcoder.jp/contests/abc238/editorial/3349)
+[解説]()
 
-* 360を配列でもってて切り込みを入れてく
+* 
 
 
-## [C問題](https://atcoder.jp/contests/abc238/tasks/abc238_c)
+## [C問題]()
 ### [提出コード]()
 
 ```c++
@@ -96,41 +54,9 @@
 ```
 
 ### コメント
+* 
 
-* 時間足りなかった
-* ```10 * 9 / 2```が45になって混乱してたけど、前から計算していくからそうなる
-  * ```10 * (9 / 2)```なら40になる
-
-[コンテスト後提出](https://atcoder.jp/contests/abc238/submissions/29104541)
-
-```c++
-      int main() {
-        ll n; cin >> n;
-        ll z = log10(n);
-        ll mod = 998244353;
-        //合計
-        ll sum = 0;
-        rep(i, z + 1){
-          //一番小さい数
-          ll s = i == 0 ? pow(10, i) : pow(10, i);
-          //一番大きい数
-          ll t = (ll)(pow(10, i + 1));
-          ll m = min((t - 1), n);
-          //間にある数の個数
-          ll a = m-s+1;
-          if(a % 2 == 0){
-            sum += ((((1 + a) % mod) * ((a / 2) % mod)) % mod); 
-          }else{
-            ll h = a / 2;
-            sum += ((((1 + a) % mod) * (h % mod) + ((h + 1) % mod)) % mod);
-          }
-          sum %= mod;
-        }
-        cout << sum << endl;
-      }
-```
-
-[解説](https://atcoder.jp/contests/abc238/editorial/3350)
+[解説]()
 
 * 
 
